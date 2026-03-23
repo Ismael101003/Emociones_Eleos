@@ -3,76 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo Juvenil - Virgen del Carmen</title>
-    <!-- Bootstrap CSS -->
+    <title>ELEOS - Ne'urei Olam | Virgen del Carmen</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Partículas flotantes -->
+    <div class="floating-particles">
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+        <span class="particle"></span>
+    </div>
+
     <!-- Header -->
-    <header class="text-center py-4">
+    <header class="text-center">
+        <div class="stars-container">
+            <i class="bi bi-star-fill star" style="top: 10%; left: 5%;"></i>
+            <i class="bi bi-star-fill star" style="top: 20%; left: 15%; animation-delay: 0.5s;"></i>
+            <i class="bi bi-star-fill star" style="top: 15%; right: 10%; animation-delay: 1s;"></i>
+            <i class="bi bi-star-fill star" style="top: 30%; right: 20%; animation-delay: 1.5s;"></i>
+            <i class="bi bi-star-fill star" style="top: 5%; left: 40%; animation-delay: 2s;"></i>
+            <i class="bi bi-star-fill star" style="top: 25%; left: 80%; animation-delay: 0.3s;"></i>
+            <i class="bi bi-star-fill star" style="top: 35%; left: 25%; animation-delay: 1.2s;"></i>
+            <i class="bi bi-star-fill star" style="top: 8%; right: 30%; animation-delay: 0.8s;"></i>
+        </div>
         <div class="container">
-            <h1 class="display-4 fw-bold">
-                <i class="bi bi-stars"></i> Grupo Juvenil
-            </h1>
-            <h2 class="h4">Virgen del Carmen</h2>
-            <p class="lead mt-3">¿Cómo te sientes hoy? Selecciona una emoción y recibe una palabra de Dios para tu corazón</p>
+            <div class="logo-container mb-4">
+                <div class="logo-ring"></div>
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_4958737861939670682_y-N0SU0tbsnueBNzIEZA11r1Ubs7ZUnR.jpg" 
+                     alt="Logo ELEOS - Ne'urei Olam" 
+                     class="logo-img">
+            </div>
+            <h1 class="display-3 fw-bold brand-title">ELEOS</h1>
+            <h2 class="subtitle">Ne'urei Olam</h2>
+            <span class="carmen-badge">
+                <i class="bi bi-flower3"></i> Virgen del Carmen <i class="bi bi-flower3"></i>
+            </span>
+            <div class="divider">
+                <span class="divider-icon"><i class="bi bi-flower2"></i></span>
+            </div>
+            <p class="lead mt-3 fw-light">
+                Dios tiene una palabra especial para ti hoy.<br>
+                <strong>No estás solo/a, Él siempre te acompaña.</strong>
+            </p>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container py-5">
+    <main class="container py-4">
+        <div class="text-center mb-5">
+            <span class="section-badge">
+                <i class="bi bi-heart-fill"></i> ¿Cómo te sientes hoy?
+            </span>
+            <div class="quick-actions mt-4">
+                <button class="btn btn-primary-custom" onclick="showRandomVerse()">
+                    <i class="bi bi-stars me-2"></i>Sorpresa
+                </button>
+                <button class="btn btn-secondary-custom" onclick="resetSelection()">
+                    <i class="bi bi-arrow-counterclockwise me-2"></i>Reiniciar
+                </button>
+            </div>
+        </div>
+        
         <!-- Emotion Buttons -->
-        <section class="row justify-content-center g-3 mb-5">
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="emotion-btn w-100 p-3" data-emotion="triste" onclick="showVerse('triste')">
-                    <i class="bi bi-emoji-tear fs-1"></i>
+        <section class="row justify-content-center g-4 mb-5" id="emotions-grid">
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="triste" onclick="showVerse('triste')">
+                    <i class="bi bi-cloud-rain"></i>
                     <span class="d-block mt-2">Triste</span>
                 </button>
             </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="emotion-btn w-100 p-3" data-emotion="alegre" onclick="showVerse('alegre')">
-                    <i class="bi bi-emoji-smile fs-1"></i>
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="alegre" onclick="showVerse('alegre')">
+                    <i class="bi bi-sun"></i>
                     <span class="d-block mt-2">Alegre</span>
                 </button>
             </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="emotion-btn w-100 p-3" data-emotion="ansioso" onclick="showVerse('ansioso')">
-                    <i class="bi bi-emoji-dizzy fs-1"></i>
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="ansioso" onclick="showVerse('ansioso')">
+                    <i class="bi bi-wind"></i>
                     <span class="d-block mt-2">Ansioso</span>
                 </button>
             </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="emotion-btn w-100 p-3" data-emotion="solo" onclick="showVerse('solo')">
-                    <i class="bi bi-person-dash fs-1"></i>
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="solo" onclick="showVerse('solo')">
+                    <i class="bi bi-person-raised-hand"></i>
                     <span class="d-block mt-2">Solo</span>
                 </button>
             </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="emotion-btn w-100 p-3" data-emotion="miedo" onclick="showVerse('miedo')">
-                    <i class="bi bi-emoji-frown fs-1"></i>
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="miedo" onclick="showVerse('miedo')">
+                    <i class="bi bi-shield-exclamation"></i>
                     <span class="d-block mt-2">Con Miedo</span>
                 </button>
             </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="emotion-btn w-100 p-3" data-emotion="agradecido" onclick="showVerse('agradecido')">
-                    <i class="bi bi-heart fs-1"></i>
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="agradecido" onclick="showVerse('agradecido')">
+                    <i class="bi bi-balloon-heart"></i>
                     <span class="d-block mt-2">Agradecido</span>
                 </button>
             </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="emotion-btn w-100 p-3" data-emotion="enojado" onclick="showVerse('enojado')">
-                    <i class="bi bi-emoji-angry fs-1"></i>
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="enojado" onclick="showVerse('enojado')">
+                    <i class="bi bi-fire"></i>
                     <span class="d-block mt-2">Enojado</span>
                 </button>
             </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="emotion-btn w-100 p-3" data-emotion="perdido" onclick="showVerse('perdido')">
-                    <i class="bi bi-question-circle fs-1"></i>
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="perdido" onclick="showVerse('perdido')">
+                    <i class="bi bi-compass"></i>
                     <span class="d-block mt-2">Perdido</span>
+                </button>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="cansado" onclick="showVerse('cansado')">
+                    <i class="bi bi-moon-stars"></i>
+                    <span class="d-block mt-2">Cansado</span>
+                </button>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="esperanza" onclick="showVerse('esperanza')">
+                    <i class="bi bi-sunrise"></i>
+                    <span class="d-block mt-2">Esperanzado</span>
+                </button>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="culpa" onclick="showVerse('culpa')">
+                    <i class="bi bi-bandaid"></i>
+                    <span class="d-block mt-2">Culpable</span>
+                </button>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <button class="emotion-btn w-100 p-4" data-emotion="amado" onclick="showVerse('amado')">
+                    <i class="bi bi-hearts"></i>
+                    <span class="d-block mt-2">Amado</span>
                 </button>
             </div>
         </section>
@@ -80,52 +153,59 @@
         <!-- Verse Display Card -->
         <section id="verse-container" class="verse-container d-none">
             <div class="card verse-card mx-auto">
-                <div class="card-body text-center p-4">
-                    <div class="verse-icon mb-3">
-                        <i class="bi bi-book fs-1"></i>
+                <div class="card-body text-center p-5">
+                    <div class="verse-icon mb-4">
+                        <i class="bi bi-book-half"></i>
                     </div>
-                    <h3 id="emotion-title" class="card-title h4 mb-3"></h3>
+                    <h3 id="emotion-title" class="card-title h4 mb-4"></h3>
                     <blockquote class="blockquote">
                         <p id="verse-text" class="fs-5 fst-italic"></p>
                     </blockquote>
-                    <footer id="verse-reference" class="blockquote-footer mt-3"></footer>
-                    <button class="btn btn-outline-primary mt-4" onclick="showAnotherVerse()">
-                        <i class="bi bi-arrow-repeat"></i> Otra cita
-                    </button>
+                    <footer id="verse-reference" class="blockquote-footer mt-4"></footer>
+                    <div class="verse-counter mt-3" id="verse-counter"></div>
+                    <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+                        <button class="btn btn-primary-custom" onclick="showAnotherVerse()">
+                            <i class="bi bi-arrow-repeat me-2"></i>Otra Cita
+                        </button>
+                        <button class="btn btn-secondary-custom" onclick="shareVerse()">
+                            <i class="bi bi-share me-2"></i>Compartir
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Welcome Message (shown initially) -->
-        <section id="welcome-message" class="text-center py-5">
-            <div class="welcome-icon mb-4">
-                <i class="bi bi-flower1 fs-1"></i>
-            </div>
-            <h3 class="h4 mb-3">Bienvenido al Grupo Juvenil</h3>
-            <p class="text-muted">Selecciona cómo te sientes arriba y recibe una palabra de aliento de las Sagradas Escrituras.</p>
-            <p class="small mt-4">
-                <i class="bi bi-quote"></i>
-                "Vengan a mí todos ustedes que están cansados y agobiados, y yo les daré descanso."
-                <br><strong>- Mateo 11:28</strong>
+        <section class="text-center py-3 emotion-hint" id="emotion-hint">
+            <p>
+                <i class="bi bi-hand-index-thumb me-2"></i>
+                Toca una emoción o usa Sorpresa para recibir una palabra.
             </p>
         </section>
+        <p class="motivational-phrase">Léeme cuando necesites una palabra de aliento.</p>
     </main>
 
     <!-- Footer -->
     <footer class="text-center py-4 mt-auto">
         <div class="container">
-            <p class="mb-2">
-                <i class="bi bi-suit-heart-fill"></i> Grupo Juvenil Virgen del Carmen
-            </p>
-            <p class="small text-muted mb-0">
-                "María, Madre del Carmelo, ruega por nosotros"
-            </p>
+            <div class="footer-logo">
+                <i class="bi bi-suit-heart-fill"></i>
+            </div>
+            <p class="mb-2 fw-semibold">ELEOS - Ne'urei Olam</p>
+            <p class="small mb-1">"Misericordia y Compasión"</p>
+            <div class="footer-verse">
+                <p>"Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos."</p>
+                <strong>- Mateo 18:20</strong>
+            </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Toast de copiado -->
+    <div id="toast" class="toast-notification">
+        <i class="bi bi-check-circle-fill"></i>
+        <span>¡Copiado!</span>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 </html>
