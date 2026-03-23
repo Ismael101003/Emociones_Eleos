@@ -1,0 +1,239 @@
+/* ================================
+   Colores de la Virgen del Carmen
+   - Marrón Carmelita: #8B4513, #6B3E26
+   - Azul Celeste: #87CEEB, #5DADE2
+   - Crema/Beige: #F5F5DC, #FFF8E7
+   - Blanco: #FFFFFF
+================================ */
+
+:root {
+    --carmelita-oscuro: #6B3E26;
+    --carmelita: #8B4513;
+    --carmelita-claro: #A0522D;
+    --azul-celeste: #87CEEB;
+    --azul-celeste-oscuro: #5DADE2;
+    --crema: #FFF8E7;
+    --crema-oscuro: #F5F5DC;
+    --blanco: #FFFFFF;
+    --texto-oscuro: #3D2914;
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--crema) 0%, var(--azul-celeste) 50%, var(--crema-oscuro) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--texto-oscuro);
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--carmelita-oscuro), var(--carmelita));
+    color: var(--blanco);
+    box-shadow: 0 4px 15px rgba(107, 62, 38, 0.3);
+}
+
+header h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header h2 {
+    color: var(--azul-celeste);
+    font-weight: 300;
+}
+
+header p {
+    color: var(--crema);
+}
+
+/* Botones de emociones */
+.emotion-btn {
+    background: var(--blanco);
+    border: 3px solid var(--carmelita);
+    border-radius: 15px;
+    color: var(--carmelita);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.emotion-btn:hover {
+    background: var(--carmelita);
+    color: var(--blanco);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(107, 62, 38, 0.3);
+}
+
+.emotion-btn:active {
+    transform: translateY(-2px);
+}
+
+.emotion-btn.active {
+    background: var(--azul-celeste-oscuro);
+    border-color: var(--azul-celeste-oscuro);
+    color: var(--blanco);
+}
+
+.emotion-btn i {
+    display: block;
+}
+
+.emotion-btn span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Contenedor de versículos */
+.verse-container {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card de versículos */
+.verse-card {
+    max-width: 600px;
+    background: var(--blanco);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(107, 62, 38, 0.2);
+    overflow: hidden;
+}
+
+.verse-card::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: linear-gradient(90deg, var(--carmelita), var(--azul-celeste), var(--carmelita));
+}
+
+.verse-icon {
+    color: var(--azul-celeste-oscuro);
+}
+
+.verse-card h3 {
+    color: var(--carmelita);
+}
+
+.verse-card blockquote p {
+    color: var(--texto-oscuro);
+    line-height: 1.8;
+}
+
+.verse-card .blockquote-footer {
+    color: var(--carmelita-claro);
+    font-weight: 600;
+}
+
+.verse-card .btn-outline-primary {
+    border-color: var(--carmelita);
+    color: var(--carmelita);
+}
+
+.verse-card .btn-outline-primary:hover {
+    background: var(--carmelita);
+    border-color: var(--carmelita);
+    color: var(--blanco);
+}
+
+/* Mensaje de bienvenida */
+#welcome-message {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-icon {
+    color: var(--carmelita);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+#welcome-message h3 {
+    color: var(--carmelita);
+}
+
+#welcome-message .small {
+    color: var(--carmelita-claro);
+}
+
+/* Footer */
+footer {
+    background: var(--carmelita-oscuro);
+    color: var(--crema);
+    margin-top: auto;
+}
+
+footer i {
+    color: var(--azul-celeste);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .emotion-btn {
+        padding: 1rem !important;
+    }
+    
+    .emotion-btn i {
+        font-size: 1.5rem !important;
+    }
+    
+    .emotion-btn span {
+        font-size: 0.8rem;
+    }
+    
+    .verse-card {
+        margin: 0 1rem;
+    }
+}
+
+/* Efecto de brillo decorativo */
+main::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, rgba(135, 206, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
